@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010 Steel - Andres Almiray. All Rights Reserved.
+ * Copyright (c) 2010-2012 Steel - Andres Almiray. All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -38,7 +38,7 @@ import griffon.core.GriffonApplication
  * @author Andres Almiray
  */
 class SteelGriffonAddon {
-    def addonInit(GriffonApplication app) {
+    void addonInit(GriffonApplication app) {
         Radar.metaClass.add = { Poi poi ->
             delegate.addPoi(poi)
         }
@@ -47,9 +47,10 @@ class SteelGriffonAddon {
         }
     }
 
-    def factories = [
+    Map factories = [
         airCompass: AirCompass,
         altimeter: Altimeter,
+        battery: Battery,
         clock: Clock,
         compass: Compass,
         digitalRadialGauge: DigitalRadial,
@@ -58,8 +59,10 @@ class SteelGriffonAddon {
         displayRectangular: DisplayRectangular,
         displaySingle: DisplaySingle,
         horizon: Horizon,
+        indicator: Indicator,
         led: Led,
         level: Level,
+        lightBulb: LightBulb,
         linearGauge: Linear,
         linearBargraph: LinearBargraph,
         radar: Radar,
@@ -69,8 +72,8 @@ class SteelGriffonAddon {
         radial2TopGauge: Radial2Top,
         radialCounterGauge: RadialCounter,
         radialBargraph: RadialBargraph,
-        radialSquareSmall: RadialSquareSmall,
         sparkLine: SparkLine,
+        trafficLight: TrafficLight,
         poi: new PoiFactory(),
         stopWatch: StopWatch,
         windDirection: WindDirection
